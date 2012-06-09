@@ -5,13 +5,12 @@ a simple app to receive github/bitbucket webhook, `git pull` in your working dir
 
 ## how to use ##
 
- 1. You have a app which uses git, name it `example-app`
+1. You have a app which uses git, name it `example-app`
 
- 2. You a dev server, where you have an `example-user` unix user, who runs the app.
+2. You a dev server, where you have an `example-user` unix user, who runs the app.
 
- 3. I use for running my apps [supervisord](http://supervisord.org/).
+3. I use for running my apps [supervisord](http://supervisord.org/).
 Here's the config.
-
 `/etc/supervisor/conf.d/exampleapp.conf`
 
     [program:exampleapp]
@@ -19,24 +18,23 @@ Here's the config.
     user: exampleuser
     directory: /home/exampleuser/example-app
 
- 4. Give access to `supervisorctl` for `exampleuser`
-
+4. Give access to `supervisorctl` for `exampleuser`
 `sudo visudo`
-
-    # User alias specification
-    exampleuser ALL=(root)NOPASSWD:/usr/bin/supervisorctl restart exampleapp
+ 
+     # User alias specification
+     exampleuser ALL=(root)NOPASSWD:/usr/bin/supervisorctl restart exampleapp
 
 5. So here's your config for app:
 
     {
-	"example-app": {
-		"directory": "/home/exampleuser/example-app",
-		"user": "exampleuser",
-		"postCommand": "sudo /usr/bin/supervisorctl restart exampleapp"
-	},
-	"server": {
-		"port": 3300
-	}
+      "example-app": {
+        "directory": "/home/exampleuser/example-app",
+        "user": "exampleuser",
+        "postCommand": "sudo /usr/bin/supervisorctl restart exampleapp"
+    },
+    "server": {
+        "port": 3300
+    }
     }
 
 6. Start this app, via `coffee app.coffee` or use supervisord:
