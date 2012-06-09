@@ -1,0 +1,10 @@
+{
+	"example-app": {
+		"directory": "/home/exampleuser/example-app",
+		"user": "exampleuser",
+		"postCommand": "sudo /usr/bin/supervisorctl restart exampleapp"
+	},
+	"server": {
+		"port": 3300
+	}
+}

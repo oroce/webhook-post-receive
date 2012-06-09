@@ -1,0 +1,10 @@
+{
+	"name":"webhook-post-receive",
+	"version": "0.0.1",
+	"description": "a simple app to receive github/bitbucket webhook, `git pull` in your working directory, and restart your app. it's not for production server, only for development one.",
+	"author": { "name": "oroce (Robert Oroszi)", "email": "robert@oroszi.net", "url": "http://oroszi.net" },
+	"main": "app.coffee",
+	"dependencies": {
+		"coffee-script": ""
+	}
+}
